@@ -1,0 +1,21 @@
+html, body{
+    height: 100%;
+    margin: 0;
+}
+
+body{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+canvas{
+    border: 2px solid black;
+    background: black;
+}
+
+#menu{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
