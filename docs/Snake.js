@@ -6,6 +6,7 @@ let hardButton = document.querySelector("#hard");
 let buttons = [easyButton, mediumButton, hardButton];
 
 easyButton.addEventListener("click", e => buttonClick(e));
+easyButton.addEventListener("touchstart", e => buttonClick(e));
 mediumButton.addEventListener("click", e => buttonClick(e));
 hardButton.addEventListener("click", e => buttonClick(e));
 
