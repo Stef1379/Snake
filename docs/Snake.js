@@ -1,4 +1,5 @@
-document.addEventListener("keydown", setStep);
+document.addEventListener("keydown", setStepWithKeys);
+document.addEventListener("keydown", setStepWithTouches);
 
 let easyButton = document.querySelector("#easy");
 let mediumButton = document.querySelector("#medium");
@@ -81,7 +82,7 @@ function createGoal(){
     ctx.fillRect(goalXPos * gridSize, goalYPos * gridSize, gridSize - 2, gridSize - 2);
 }
 
-function setStep(e) {
+function setStepWithKeys(e) {
     switch (e.key){
         case "ArrowUp":
             if(YDirection !== 1){
@@ -107,6 +108,34 @@ function setStep(e) {
                 XDirection = -1;
             }
             break;
+    }
+}
+
+function setStepWithTouches(e){
+    if(e.pageX > 22 && e.pageX < 55 && e.pageY > 22 && e.pageY < 55){
+        //Up
+        if(YDirection !== 1){
+            YDirection = -1;
+            XDirection = 0;
+        }
+    } else if(e.pageX > 22 && e.pageX < 55 && e.pageY > 22 && e.pageY < 55){
+        //Down
+        if(YDirection !== -1){
+            YDirection = 1;
+            XDirection = 0;
+        }
+    } else if (e.pageX > 22 && e.pageX < 55 && e.pageY > 22 && e.pageY < 55){
+        //Right
+        if(XDirection !== -1){
+            YDirection = 0;
+            XDirection = 1;
+        }
+    } else if (e.pageX > 22 && e.pageX < 55 && e.pageY > 22 && e.pageY < 55){
+        //Left
+        if(XDirection !== 1){
+            YDirection = 0;
+            XDirection = -1;
+        }
     }
 }
 
