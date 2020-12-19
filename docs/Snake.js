@@ -112,6 +112,7 @@ function setStepWithKeys(e) {
 }
 
 function setStepWithTouches(e){
+    console.log(e.pageX + " " + e.pageY);
     if(e.pageX > 22 && e.pageX < 55 && e.pageY > 22 && e.pageY < 55){
         //Up
         if(YDirection !== 1){
