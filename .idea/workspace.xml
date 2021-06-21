@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="2f0e09d8-fd64-4906-b3c6-f22aadb03376" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/docs/Snake.js" beforeDir="false" afterPath="$PROJECT_DIR$/docs/Snake.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/docs/index.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -43,6 +43,7 @@
       <workItem from="1603017109161" duration="389000" />
       <workItem from="1603816294885" duration="26000" />
       <workItem from="1608389060753" duration="333000" />
+      <workItem from="1624268912950" duration="18000" />
     </task>
     <servers />
   </component>
