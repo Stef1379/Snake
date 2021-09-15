@@ -1,5 +1,4 @@
-document.addEventListener("keydown", setStepWithKeys);
-document.addEventListener("keydown", setStepWithTouches);
+document.addEventListener("keydown", setStep);
 
 let easyButton = document.querySelector("#easy");
 let mediumButton = document.querySelector("#medium");
@@ -27,14 +26,13 @@ let tileCount = 20;
 let goalXPos = 0;
 let goalYPos = 0;
 let score = 0;
-let interval = null;
 
 let trail = [];
 let tail = 5;
 
 createGoal();
 
-function game(){
+function game() {
     headYPos += YDirection;
     headXPos += XDirection;
 
@@ -67,7 +65,7 @@ function game(){
     }
 }
 
-function createGoal(){
+function createGoal() {
     ctx.fillStyle = "#ff0000";
     goalXPos = Math.floor(Math.random() * tileCount);
     goalYPos = Math.floor(Math.random() * tileCount);
@@ -82,61 +80,32 @@ function createGoal(){
     ctx.fillRect(goalXPos * gridSize, goalYPos * gridSize, gridSize - 2, gridSize - 2);
 }
 
-function setStepWithKeys(e) {
-    switch (e.key){
+function setStep(e) {
+    switch (e.key) {
         case "ArrowUp":
-            if(YDirection !== 1){
+            if (YDirection !== 1) {
                 YDirection = -1;
                 XDirection = 0;
             }
             break;
         case "ArrowDown":
-            if(YDirection !== -1){
+            if (YDirection !== -1) {
                 YDirection = 1;
                 XDirection = 0;
             }
             break;
         case "ArrowRight":
-            if(XDirection !== -1){
+            if (XDirection !== -1) {
                 YDirection = 0;
                 XDirection = 1;
             }
             break;
         case "ArrowLeft":
-            if(XDirection !== 1){
+            if (XDirection !== 1) {
                 YDirection = 0;
                 XDirection = -1;
             }
             break;
-    }
-}
-
-function setStepWithTouches(e){
-    console.log(e.pageX + " " + e.pageY);
-    if(e.pageX > 22 && e.pageX < 55 && e.pageY > 22 && e.pageY < 55){
-        //Up
-        if(YDirection !== 1){
-            YDirection = -1;
-            XDirection = 0;
-        }
-    } else if(e.pageX > 22 && e.pageX < 55 && e.pageY > 22 && e.pageY < 55){
-        //Down
-        if(YDirection !== -1){
-            YDirection = 1;
-            XDirection = 0;
-        }
-    } else if (e.pageX > 22 && e.pageX < 55 && e.pageY > 22 && e.pageY < 55){
-        //Right
-        if(XDirection !== -1){
-            YDirection = 0;
-            XDirection = 1;
-        }
-    } else if (e.pageX > 22 && e.pageX < 55 && e.pageY > 22 && e.pageY < 55){
-        //Left
-        if(XDirection !== 1){
-            YDirection = 0;
-            XDirection = -1;
-        }
     }
 }
 
@@ -155,12 +124,12 @@ function checkBorderCollide() {
     }
 }
 
-function setScore(){
+function setScore() {
     let scoreDiv = document.querySelector("#score label");
     scoreDiv.innerHTML = score.toString();
 }
 
-function buttonClick(e){
+function buttonClick(e) {
     switch (e.target){
         case easyButton:
             setInterval(game, 1000/10);
