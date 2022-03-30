@@ -19,3 +19,40 @@ canvas{
     justify-content: space-between;
     align-items: center;
 }
+
+@media only screen and (max-device-width: 480px){
+    html{
+        touch-action: manipulation;
+    }
+
+    #game{
+        transform: scaleX(2.3) scaleY(2.3);
+    }
+
+    #arrow-buttons{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    #arrow-buttons button{
+        height: 50px;
+        width: 50%;
+        margin-top: 5px;
+        flex-wrap: wrap;
+    }
+
+    #arrow-buttons #arrow-left-right{
+        width: 50%;
+    }
+
+    #arrow-buttons #arrow-left-right button{
+        width: 49%;
+    }
+}
+
+@media (min-device-width: 481px){
+    #arrow-buttons{
+        display: none;
+    }
+}

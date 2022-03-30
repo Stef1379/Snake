@@ -2,7 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="2f0e09d8-fd64-4906-b3c6-f22aadb03376" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/Snake.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/Snake.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/Snake.css" beforeDir="false" afterPath="$PROJECT_DIR$/docs/Snake.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/docs/Snake.js" beforeDir="false" afterPath="$PROJECT_DIR$/docs/Snake.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/docs/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/docs/index.html" afterDir="false" />
     </list>
@@ -13,6 +15,9 @@
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="MarkdownSettingsMigration">
+    <option name="stateVersion" value="1" />
   </component>
   <component name="ProjectId" id="1j2zjDRguGwbMrRr1AIdPnFISh6" />
   <component name="ProjectLevelVcsManager">
@@ -57,6 +62,7 @@
       <workItem from="1624268912950" duration="3806000" />
       <workItem from="1624273937008" duration="31000" />
       <workItem from="1631715767617" duration="139000" />
+      <workItem from="1648646533356" duration="3404000" />
     </task>
     <servers />
   </component>

@@ -1,5 +1,14 @@
 document.addEventListener("keydown", setStep);
 
+let upButton = document.querySelector("#arrow-up");
+let downButton = document.querySelector("#arrow-down");
+let leftButton = document.querySelector("#arrow-left");
+let rightButton = document.querySelector("#arrow-right");
+upButton.addEventListener("ontouchend", goUp);
+downButton.addEventListener("ontouchend", goDown);
+leftButton.addEventListener("ontouchend", goLeft);
+rightButton.addEventListener("ontouchend", goRight);
+
 let easyButton = document.querySelector("#easy");
 let mediumButton = document.querySelector("#medium");
 let hardButton = document.querySelector("#hard");
@@ -83,28 +92,16 @@ function createGoal() {
 function setStep(e) {
     switch (e.key) {
         case "ArrowUp":
-            if (YDirection !== 1) {
-                YDirection = -1;
-                XDirection = 0;
-            }
+            goUp();
             break;
         case "ArrowDown":
-            if (YDirection !== -1) {
-                YDirection = 1;
-                XDirection = 0;
-            }
+            goDown();
             break;
         case "ArrowRight":
-            if (XDirection !== -1) {
-                YDirection = 0;
-                XDirection = 1;
-            }
+            goRight();
             break;
         case "ArrowLeft":
-            if (XDirection !== 1) {
-                YDirection = 0;
-                XDirection = -1;
-            }
+            goLeft();
             break;
     }
 }
@@ -148,5 +145,33 @@ function buttonClick(e) {
         document.querySelector("#"+ buttons[counter].id).style.background = "#FCFCFC";
         document.querySelector("#"+ buttons[counter].id).disabled = true;
         counter++;
+    }
+}
+
+function goUp() {
+    if (YDirection !== 1) {
+        YDirection = -1;
+        XDirection = 0;
+    }
+}
+
+function goDown() {
+    if (YDirection !== -1) {
+        YDirection = 1;
+        XDirection = 0;
+    }
+}
+
+function goRight() {
+    if (XDirection !== -1) {
+        YDirection = 0;
+        XDirection = 1;
+    }
+}
+
+function goLeft() {
+    if (XDirection !== 1) {
+        YDirection = 0;
+        XDirection = -1;
     }
 }
