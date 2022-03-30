@@ -4,10 +4,10 @@ let upButton = document.querySelector("#arrow-up");
 let downButton = document.querySelector("#arrow-down");
 let leftButton = document.querySelector("#arrow-left");
 let rightButton = document.querySelector("#arrow-right");
-upButton.addEventListener("ontouchend", goUp);
-downButton.addEventListener("ontouchend", goDown);
-leftButton.addEventListener("ontouchend", goLeft);
-rightButton.addEventListener("ontouchend", goRight);
+upButton.addEventListener("ontouchstart", goUp);
+downButton.addEventListener("ontouchstart", goDown);
+leftButton.addEventListener("ontouchstart", goLeft);
+rightButton.addEventListener("ontouchstart", goRight);
 
 let easyButton = document.querySelector("#easy");
 let mediumButton = document.querySelector("#medium");
@@ -149,6 +149,7 @@ function buttonClick(e) {
 }
 
 function goUp() {
+    console.log("DSF")
     if (YDirection !== 1) {
         YDirection = -1;
         XDirection = 0;

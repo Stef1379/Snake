@@ -26,7 +26,7 @@ canvas{
     }
 
     #game{
-        transform: scaleX(2.3) scaleY(2.3);
+        /*transform: scaleX(2.3) scaleY(2.3);*/
     }
 
     #arrow-buttons{
