@@ -7,6 +7,7 @@ body{
     display: flex;
     justify-content: center;
     align-items: center;
+    overscroll-behavior: contain;
 }
 
 canvas{
@@ -39,11 +40,13 @@ canvas{
     }
 
     #arrow-buttons #arrow-left-right{
+        display: flex;
+        justify-content: space-between;
         width: 50%;
     }
 
     #arrow-buttons #arrow-left-right button{
-        width: 49%;
+        width: 48%;
     }
 }
 
