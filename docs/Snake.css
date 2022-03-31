@@ -33,7 +33,7 @@ canvas{
     }
 
     #arrow-buttons button{
-        height: 50px;
+        height: 75px;
         width: 50%;
         margin-top: 5px;
         flex-wrap: wrap;
@@ -42,11 +42,11 @@ canvas{
     #arrow-buttons #arrow-left-right{
         display: flex;
         justify-content: space-between;
-        width: 50%;
+        width: 100%;
     }
 
     #arrow-buttons #arrow-left-right button{
-        width: 48%;
+        width: 49%;
     }
 }
 
