@@ -4,10 +4,10 @@ let upButton = document.querySelector("#arrow-up");
 let downButton = document.querySelector("#arrow-down");
 let leftButton = document.querySelector("#arrow-left");
 let rightButton = document.querySelector("#arrow-right");
-upButton.addEventListener("ontouchstart", goUp);
-downButton.addEventListener("ontouchstart", goDown);
-leftButton.addEventListener("ontouchstart", goLeft);
-rightButton.addEventListener("ontouchstart", goRight);
+upButton.addEventListener("touchstart", goUp);
+downButton.addEventListener("touchstart", goDown);
+leftButton.addEventListener("touchstart", goLeft);
+rightButton.addEventListener("touchstart", goRight);
 
 let easyButton = document.querySelector("#easy");
 let mediumButton = document.querySelector("#medium");
