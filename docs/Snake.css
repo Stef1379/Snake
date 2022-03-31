@@ -24,11 +24,7 @@ canvas{
     html{
         touch-action: manipulation;
     }
-
-    #game{
-        /*transform: scaleX(2.3) scaleY(2.3);*/
-    }
-
+    
     #arrow-buttons{
         display: flex;
         flex-direction: column;
