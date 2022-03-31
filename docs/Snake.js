@@ -149,7 +149,6 @@ function buttonClick(e) {
 }
 
 function goUp() {
-    alert("DSF")
     if (YDirection !== 1) {
         YDirection = -1;
         XDirection = 0;

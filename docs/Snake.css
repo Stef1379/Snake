@@ -20,11 +20,11 @@ canvas{
     align-items: center;
 }
 
-@media only screen and (max-device-width: 480px){
+@media only screen and (max-device-width: 900px){
     html{
         touch-action: manipulation;
     }
-    
+
     #arrow-buttons{
         display: flex;
         flex-direction: column;
@@ -47,7 +47,7 @@ canvas{
     }
 }
 
-@media (min-device-width: 481px){
+@media (min-device-width: 901px){
     #arrow-buttons{
         display: none;
     }
