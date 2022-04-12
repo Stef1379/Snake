@@ -183,4 +183,4 @@ function setUsername() {
     usernameLabel.innerHTML = username;
     run();
 }
-setUsername()
+setUsername();
