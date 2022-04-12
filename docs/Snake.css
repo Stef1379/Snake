@@ -1,15 +1,3 @@
-html, body{
-    height: 100%;
-    margin: 0;
-}
-
-body{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    overscroll-behavior: contain;
-}
-
 canvas{
     border: 2px solid black;
     background: black;
@@ -19,6 +7,19 @@ canvas{
     display: flex;
     justify-content: space-between;
     align-items: center;
+    max-width: 404px;
+}
+
+#info-container{
+    width: 42%;
+}
+
+#info-container p{
+    margin: 0;
+}
+
+#info-container p label{
+    word-wrap: break-word;
 }
 
 @media only screen and (max-device-width: 900px){

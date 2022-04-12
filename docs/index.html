@@ -6,16 +6,21 @@
     <title>Snake</title>
 
     <link rel="icon" href="https://cdn0.iconfinder.com/data/icons/video-games-8/24/video_game_play_snake-512.png">
+    <link rel="stylesheet" href="overall-style.css" type="text/css"/>
     <link rel="stylesheet" href="Snake.css" type="text/css"/>
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v6.0.0/css/all.css">
     
     <script src="Snake.js" type="text/javascript" defer></script>
+    <script src="../connect-database.js" type="text/javascript" defer></script>
 </head>
 <body>
     <div id="game">
         <div id="menu">
-            <p id="score">Score: <label>0</label></p>
-            <div>
+            <div id="info-container">
+                <p id="score">Score: <label>0</label></p>
+                <p id="username">Username: <label>Not found</label></p>
+            </div>
+            <div id="buttons">
                 <button id="restart">Restart</button>
                 <button id="easy">Easy</button>
                 <button id="medium">Medium</button>

@@ -175,3 +175,12 @@ function goLeft() {
         XDirection = -1;
     }
 }
+
+let username = sessionStorage.getItem("username");
+
+function setUsername() {
+    let usernameLabel = document.querySelector('#username label');
+    usernameLabel.innerHTML = username;
+    run();
+}
+setUsername()
