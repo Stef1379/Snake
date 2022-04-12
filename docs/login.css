@@ -1,0 +1,17 @@
+body{
+    flex-direction: column;
+    height: 100%;
+}
+
+img{
+    height: 40%;
+}
+
+button{
+    margin-top: 1%;
+    border-radius: 20px;
+    border: none;
+    padding: 2% 3% 2% 3%;
+    background-color: darkgray;
+    
+}

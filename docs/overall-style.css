@@ -8,4 +8,5 @@ body{
     justify-content: center;
     align-items: center;
     overscroll-behavior: contain;
+    font-family: "Olympic Sans", "Inter", Helvetica, Arial, sans-serif;
 }

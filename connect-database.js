@@ -1,24 +1,83 @@
-const { Client } = require("cassandra-driver");
+const apiKey = "AstraCS:XAbwTSTgknYRoQPlIGskeNbp:716c0a53608a46bd7d7a1746cf5578cb8b6be793a8763d118694a9e7818f5c4c";
 
-async function run() {
-    const client = new Client({
-      cloud: {
-        secureConnectBundle: "./secure-connect-leaderboard.zip",
-      },
-      credentials: {
-        username: "LsfrnZaWUvGhHLEkQYhSlQHi",
-        password: "gkuZmd,d.K_-TxkJywHYlbM+I.c5ucyIekS0iJvn2IRNZpJUJcQXOiIpjYNA76gWRk-kj8rXsbJga1K,Sw5LZ.+Gglaw8E9L-euh7hB3yUzCpBy9mobKrwmZS-6A0-u-",
-      },
-    });
-  
-    await client.connect();
-  
-    // Execute a query
-    const rs = await client.execute("SELECT * FROM system.local");
-    console.log(`Your cluster returned ${rs.rowLength} row(s)`);
-  
-    await client.shutdown();
+const baseApiURL = "https://4c35a1d6-8988-41c8-b237-c15b8015323f-europe-west1.apps.astra.datastax.com/api/rest/";
+const receiveOrPostUsersURL = baseApiURL + "v1/keyspaces/Leaderboard/tables/scores/rows/";
+const receiveUserFromUsernameURL = baseApiURL + "v2/keyspaces/Leaderboard/scores/";
+const receiveAllUsersURL = baseApiURL + "v2/keyspaces/Leaderboard/scores/rows";
+
+const receiveUsername = async (username) => {
+  const response = await fetch(receiveUserFromUsernameURL + username, {
+    method: 'GET',
+    headers: {
+      'Content-Type': 'application/json',
+      'X-Cassandra-Token': apiKey
+    }
+  });
+  const myJson = await response.json(); //extract JSON from the http response
+  localStorage.setItem("username", username);
+
+  //When username not in database, create row with new username
+  if (myJson.data.length === 0) {
+    //post username to database
+    postUsername(username);
   }
-  
-  // Run the async function
-  run();
+}
+
+const receiveAllUsers = async () => {
+  const response = await fetch(receiveAllUsersURL, {
+    method: 'GET',
+    headers: {
+      'Content-Type': 'application/json',
+      'X-Cassandra-Token': apiKey
+    }
+  });
+  const myJson = await response.json(); //extract JSON from the http response
+
+  if (myJson.data.length > 0) {
+    localStorage.setItem("allUsers", JSON.stringify(myJson.data));
+  }
+}
+
+const postUsername = async (username) => {
+  await fetch(receiveOrPostUsersURL, {
+    method: 'POST',
+    body: JSON.stringify({
+      "columns": [
+        {
+          "name": "username",
+          "value": username
+        },
+        {
+          "name": "score",
+          "value": "0"
+        }
+      ]
+    }),
+    headers: {
+      'Content-Type': 'application/json',
+      'X-Cassandra-Token': apiKey
+    }
+  });
+}
+
+const postScore = async (username, score) => {
+  await fetch(receiveOrPostUsersURL, {
+    method: 'POST',
+    body: JSON.stringify({
+      "columns": [
+        {
+          "name": "username",
+          "value": username
+        },
+        {
+          "name": "score",
+          "value": score
+        }
+      ]
+    }),
+    headers: {
+      'Content-Type': 'application/json',
+      'X-Cassandra-Token': apiKey
+    }
+  });
+}

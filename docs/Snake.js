@@ -1,5 +1,8 @@
 document.addEventListener("keydown", setStep);
 
+let username = localStorage.getItem('username');
+setUsername();
+
 let upButton = document.querySelector("#arrow-up");
 let downButton = document.querySelector("#arrow-down");
 let leftButton = document.querySelector("#arrow-left");
@@ -51,9 +54,8 @@ function game() {
         ctx.fillRect(trail[i].x * gridSize, trail[i].y * gridSize, gridSize - 2, gridSize - 2);
 
         if(trail[i].x === headXPos && trail[i].y === headYPos){
-            tail = 5;
-            score = 0;
-            setScore();
+            postScore(username, score);
+            window.location = "leaderboard.html";
         }
     }
 
@@ -176,11 +178,8 @@ function goLeft() {
     }
 }
 
-let username = sessionStorage.getItem("username");
-
 function setUsername() {
     let usernameLabel = document.querySelector('#username label');
     usernameLabel.innerHTML = username;
-    run();
 }
-setUsername();
+
