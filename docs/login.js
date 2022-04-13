@@ -9,7 +9,7 @@ showLeaderboardButton.addEventListener('click', () => {
 });
 
 let usernameInput = document.querySelector('.username-container input');
-usernameInput.addEventListener('keydown', () => validateUsernameInput());
+usernameInput.addEventListener('keyup', () => validateUsernameInput());
 
 submitButton.addEventListener('click', function(e) {
     let username = usernameInput.value;
@@ -25,6 +25,7 @@ submitButton.addEventListener('click', function(e) {
 
 function validateUsernameInput(e) {
     let usernameInputValue = usernameInput.value;
+    console.log(usernameInputValue.length)
 
     if ((e && !usernameInputValue) || usernameInputValue.length > MAX_LENGTH) {
         validation.style.visibility = 'visible';
