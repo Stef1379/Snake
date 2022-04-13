@@ -25,7 +25,6 @@ submitButton.addEventListener('click', function(e) {
 
 function validateUsernameInput(e) {
     let usernameInputValue = usernameInput.value;
-    console.log(usernameInputValue.length)
 
     if ((e && !usernameInputValue) || usernameInputValue.length > MAX_LENGTH) {
         validation.style.visibility = 'visible';
