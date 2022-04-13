@@ -1,25 +1,19 @@
 const MAX_LENGTH = 30;
 
-let usernameInput = document.querySelector('.username-container input');
 let submitButton = document.querySelector('.submit-button');
 let validation = document.querySelector('.validation p');
 
 let showLeaderboardButton = document.querySelector('.show-leaderboard-button');
-showLeaderboardButton.addEventListener('click', showLeaderboard);
-
-
-usernameInput.addEventListener('keyup', function() {
-    if(usernameInput.value.length > MAX_LENGTH) {
-        validateUsernameInput(undefined, "Username may contain only 30 characters");
-        showValidationMessage();
-    } else if (usernameInput.value.length <= MAX_LENGTH) {
-        hideValidationMessage();
-    }
+showLeaderboardButton.addEventListener('click', () => {
+    window.location = "leaderboard.html";
 });
 
-submitButton.addEventListener('click', function() {
+let usernameInput = document.querySelector('.username-container input');
+usernameInput.addEventListener('keydown', () => validateUsernameInput());
+
+submitButton.addEventListener('click', function(e) {
     let username = usernameInput.value;
-    let isUsernameValid = validateUsernameInput(username, "Please enter a valid username");
+    let isUsernameValid = validateUsernameInput(e);
 
     if (isUsernameValid) {
         receiveUsername(username);
@@ -29,24 +23,22 @@ submitButton.addEventListener('click', function() {
     }
 });
 
-function validateUsernameInput(usernameInputValue, errorMessage) {
-    if (!usernameInputValue || usernameInputValue.length > MAX_LENGTH) {
-        showValidationMessage();
-        validation.innerHTML = errorMessage;
+function validateUsernameInput(e) {
+    let usernameInputValue = usernameInput.value;
+
+    if ((e && !usernameInputValue) || usernameInputValue.length > MAX_LENGTH) {
+        validation.style.visibility = 'visible';
+        validation.innerHTML = setErrorMessage(usernameInputValue);
         return false;
     }
-    hideValidationMessage();
+    validation.style.visibility = 'hidden';
     return true;
 }
 
-function showValidationMessage() {
-    validation.style.visibility = 'visible';
-}
-
-function hideValidationMessage() {
-    validation.style.visibility = 'hidden';
-}
-
-function showLeaderboard() {
-    window.location = "leaderboard.html";
+function setErrorMessage(usernameInputValue) {
+    if (usernameInputValue && usernameInputValue.length > MAX_LENGTH) {
+        return "Username may contain only 30 characters";
+    } else {
+        return "Please enter a valid username";
+    }
 }

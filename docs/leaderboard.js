@@ -1,9 +1,11 @@
 window.onload = function() {
     if(!window.location.hash) {
-        window.location = window.location + '#loaded';
+        window.location = window.location + '#leaderboard';
         window.location.reload();
     }
 };
+
+receiveAllUsers();
 
 let currentPage = 1;
 let recordsPerPage = 10;
@@ -19,7 +21,6 @@ let page_span = document.querySelector(".page-index");
 previousButton.addEventListener('click', goToPreviousPage);
 nextButton.addEventListener('click', goToNextPage);
 
-receiveAllUsers();
 let usersContainer = document.querySelector('.users-container');
 let allUsersJsonString = localStorage.getItem("allUsers");
 let allUsers = JSON.parse(allUsersJsonString);

@@ -1,6 +1,8 @@
 body{
     flex-direction: column;
     height: 100%;
+    width: 20%;
+    margin: auto;
     align-items: center;
 }
 
@@ -15,13 +17,34 @@ button{
     padding: 2% 3% 2% 3%;
 }
 
+.username-container{
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+}
+
+input{
+    width: 100%;
+    margin-left: 2%;
+}
+
+.form{
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+}
+
 .validation{
     color: red;
     visibility: hidden;
 }
 
-@media only screen and (min-device-width: 901px){
-    .show-leaderboard-button{
-        padding: 1% 2% 1% 2%;
+.submit-button{
+    align-self: flex-end;
+}
+
+@media only screen and (max-device-width: 900px){
+    body{
+        width: 60%;
     }
 }
