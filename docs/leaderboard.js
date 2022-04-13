@@ -59,7 +59,7 @@ function bubbleSort(users) {
 
 function changePage(pageIndex) {
     //Validate page
-    if (pageIndex < 1) pageIndex = 1;
+    if (!pageIndex || pageIndex < 1) pageIndex = 1;
     if (pageIndex > amountOfPages()) pageIndex = amountOfPages();
 
     //Set table contents
@@ -82,6 +82,7 @@ function changePage(pageIndex) {
         previousButton.style.visibility = "visible";
     }
 
+    console.log(allUsers.length)
     if (pageIndex == amountOfPages()) {
         nextButton.style.visibility = "hidden";
     } else {
