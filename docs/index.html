@@ -8,18 +8,17 @@
     <link rel="stylesheet" href="overall-style.css" type="text/css"/>
     <link rel="stylesheet" href="login.css" type="text/css"/>
     
-    <script src="../connect-database.js" type="text/javascript" defer></script>
+    <script src="connect-database.js" type="text/javascript" defer></script>
     <script src="login.js" type="text/javascript" defer></script>
 </head>
 <body>
     <h1>Snake</h2>
-    <img src="../snake.png"/>
-    <!-- Add validation -->
+    <img src="snake.png"/>
     <div class="form">
-        <h3>Enter username</h2>
+        <div class="validation"><p>Validation message which could be an error</p></div>
         <div class="username-container">
             <label>Username</label>
-            <input type="text" />
+            <input type="text" maxlength="30" />
         </div>
         <button class="submit-button">Submit</button>
     </div>

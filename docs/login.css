@@ -1,6 +1,8 @@
 body{
     flex-direction: column;
     height: 100%;
+    width: 20%;
+    margin: auto;
 }
 
 img{
@@ -14,4 +16,9 @@ button{
     padding: 2% 3% 2% 3%;
     background-color: darkgray;
     
+}
+
+.validation{
+    color: red;
+    visibility: hidden;
 }
