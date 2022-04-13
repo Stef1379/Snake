@@ -4,6 +4,9 @@ let usernameInput = document.querySelector('.username-container input');
 let submitButton = document.querySelector('.submit-button');
 let validation = document.querySelector('.validation p');
 
+let showLeaderboardButton = document.querySelector('.show-leaderboard-button');
+showLeaderboardButton.addEventListener('click', showLeaderboard);
+
 
 usernameInput.addEventListener('keyup', function() {
     if(usernameInput.value.length > MAX_LENGTH) {
@@ -42,4 +45,8 @@ function showValidationMessage() {
 
 function hideValidationMessage() {
     validation.style.visibility = 'hidden';
+}
+
+function showLeaderboard() {
+    window.location = "leaderboard.html";
 }

@@ -8,8 +8,8 @@ window.onload = function() {
 let currentPage = 1;
 let recordsPerPage = 10;
 
-let playAgainButton = document.querySelector('.play-again');
-playAgainButton.addEventListener('click', function() {
+let goBackButton = document.querySelector('.go-back');
+goBackButton.addEventListener('click', function() {
     window.location = "index.html";
 })
 

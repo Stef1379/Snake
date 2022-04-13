@@ -1,8 +1,7 @@
 body{
     flex-direction: column;
     height: 100%;
-    width: 20%;
-    margin: auto;
+    align-items: center;
 }
 
 img{
@@ -11,13 +10,18 @@ img{
 
 button{
     margin-top: 1%;
-    border-radius: 20px;
+    border-radius: 10px;
     border: 1px black solid;
     padding: 2% 3% 2% 3%;
-    background-color: darkgray;
 }
 
 .validation{
     color: red;
     visibility: hidden;
+}
+
+@media only screen and (min-device-width: 901px){
+    .show-leaderboard-button{
+        padding: 1% 2% 1% 2%;
+    }
 }
