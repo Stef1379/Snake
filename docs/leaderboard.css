@@ -61,15 +61,3 @@ body{
 .user:nth-child(even){
     background: #eee;
 }
-
-.user:first-child{
-    background: #DAA520;
-}
-
-.user:nth-child(2){
-    background: #C0C0C0;
-}
-
-.user:nth-child(3){
-    background: #CD7F32;
-}

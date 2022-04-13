@@ -47,10 +47,11 @@ function changePage(pageIndex) {
 
     //Set table contents
     usersContainer.innerHTML = "";
-    for (let i = (pageIndex -1 ) * recordsPerPage; i < (pageIndex * recordsPerPage); i++) {
+    for (let i = (pageIndex - 1) * recordsPerPage; i < (pageIndex * recordsPerPage); i++) {
         if (!allUsers[i]) break;
         usersContainer.innerHTML += "<div class='user'><p class='username'>" + allUsers[i].username + 
                                     "</p><p class='score'>" + allUsers[i].score + "</p></div>";
+        setPodiumColors(pageIndex, i);
     }
 
     //Set page number
@@ -86,4 +87,22 @@ function goToNextPage() {
 
 function amountOfPages() {
     return Math.ceil(allUsers.length / recordsPerPage);
+}
+
+function setPodiumColors(pageIndex, userIndex) {
+    if (pageIndex === 1) {
+        let users = document.querySelectorAll('.users-container .user');
+
+        switch (userIndex) {
+            case 0:
+                users[userIndex].style.backgroundColor = "#DAA520";
+                break;
+            case 1:
+                users[userIndex].style.backgroundColor = "#C0C0C0";
+                break;
+            case 2:
+                users[userIndex].style.backgroundColor = "#CD7F32";
+                break;
+        }
+    }
 }
