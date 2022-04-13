@@ -12,10 +12,9 @@ img{
 button{
     margin-top: 1%;
     border-radius: 20px;
-    border: none;
+    border: 1px black solid;
     padding: 2% 3% 2% 3%;
     background-color: darkgray;
-    
 }
 
 .validation{

@@ -2,15 +2,48 @@ body{
     flex-direction: column;
 }
 
-.users-container{
+::-webkit-scrollbar {
+    width: 10px;
+}
+
+::-webkit-scrollbar-thumb {
+    background: lightgray;
+    border-top-right-radius: 10px;
+    border-bottom-right-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: darkgray;
+}
+
+.play-again{
+    border-radius: 10px;
+    border: 1px black solid;
+    font-size: medium;
+    align-self: flex-start;
+}
+
+.container{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
     width: 20%;
+    padding: .5%;
+    overflow-y: auto;
+    overflow-x: hidden;
+}
+
+.users-container{
+    width: 100%;
     border: 1px black solid;
     border-radius: 10px;
-    overflow: hidden
+    overflow-y: auto;
+    overflow-x: hidden;
+    margin: 2% 0%;
 }
 
 @media only screen and (max-device-width: 900px){
-    .users-container{
+    .container{
         width: 80%;
     }
 }
