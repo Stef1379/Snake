@@ -13,13 +13,12 @@ const receiveUsername = async (username) => {
       'X-Cassandra-Token': apiKey
     }
   });
-  const myJson = await response.json(); //extract JSON from the http response
+  const myJson = await response.json();
   localStorage.setItem("username", username);
 
-  //When username not in database, create row with new username
+  //When the username is not in database, create a new username.
   if (myJson.data.length === 0) {
-    //post username to database
-    postUsername(username);
+    createUser(username);
   }
 }
 
@@ -31,36 +30,16 @@ const receiveAllUsers = async () => {
       'X-Cassandra-Token': apiKey
     }
   });
-  const myJson = await response.json(); //extract JSON from the http response
+  const myJson = await response.json();
 
   if (myJson.data.length > 0) {
     localStorage.setItem("allUsers", JSON.stringify(myJson.data));
   }
 }
 
-const postUsername = async (username) => {
-  await fetch(receiveOrPostUsersURL, {
-    method: 'POST',
-    body: JSON.stringify({
-      "columns": [
-        {
-          "name": "username",
-          "value": username
-        },
-        {
-          "name": "score",
-          "value": "0"
-        }
-      ]
-    }),
-    headers: {
-      'Content-Type': 'application/json',
-      'X-Cassandra-Token': apiKey
-    }
-  });
-}
-
-const postScore = async (username, score) => {
+const createUser = async (username, score) => {
+  if (!score) score = 0;
+  
   await fetch(receiveOrPostUsersURL, {
     method: 'POST',
     body: JSON.stringify({

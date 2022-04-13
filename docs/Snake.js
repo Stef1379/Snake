@@ -54,7 +54,7 @@ function game() {
         ctx.fillRect(trail[i].x * gridSize, trail[i].y * gridSize, gridSize - 2, gridSize - 2);
 
         if(trail[i].x === headXPos && trail[i].y === headYPos){
-            postScore(username, score);
+            createUser(username, score);
             window.location = "leaderboard.html";
         }
     }
