@@ -14,7 +14,7 @@ let allUsers = JSON.parse(allUsersJsonString);
 bubbleSort(allUsers);
 
 //allUsers.length
-for(i = 0; i < 14; i++) {
+for(i = 0; i < 10; i++) {
     let username = allUsers[i].username;
     let score = allUsers[i].score;
 
