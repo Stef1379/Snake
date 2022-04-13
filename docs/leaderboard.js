@@ -31,7 +31,7 @@ checkIfUsersAvailable();
 
 function checkIfUsersAvailable() {
     if (!allUsers) {
-        usersContainer.innerHTML =  "<div class='user'><p>No users found</p></div>";
+        usersContainer.innerHTML =  "<div class='user'><p>Something went wrong</p></div>";
     } else {
         bubbleSort(allUsers);
         changePage(1);
