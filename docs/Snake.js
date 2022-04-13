@@ -38,6 +38,7 @@ let tileCount = 20;
 let goalXPos = 0;
 let goalYPos = 0;
 let score = 0;
+let difficulty = "Easy";
 
 let trail = [];
 let tail = 5;
@@ -54,8 +55,7 @@ function game() {
         ctx.fillRect(trail[i].x * gridSize, trail[i].y * gridSize, gridSize - 2, gridSize - 2);
 
         if(trail[i].x === headXPos && trail[i].y === headYPos){
-            createUser(username, score);
-            window.location = "leaderboard.html";
+            gameOver();
         }
     }
 
@@ -132,12 +132,15 @@ function buttonClick(e) {
     switch (e.target){
         case easyButton:
             setInterval(game, 1000/10);
+            difficulty = "Easy";
             break;
         case mediumButton:
             setInterval(game, 1000/15);
+            difficulty = "Medium";
             break;
         case hardButton:
             setInterval(game, 1000/20);
+            difficulty = "Hard";
             break;
     }
     e.target.style.background = "lightgray"
@@ -183,3 +186,17 @@ function setUsername() {
     usernameLabel.innerHTML = username;
 }
 
+function gameOver() {
+    switch (difficulty) {
+        case "Easy":
+            createUser(username, score, 0);
+            break;
+        case "Medium":
+            createUser(username, score, 1);
+            break;
+        case "Hard":
+            createUser(username, score, 2);
+            break;
+    }
+    window.location = "leaderboard.html";
+}

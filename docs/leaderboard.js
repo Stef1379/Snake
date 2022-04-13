@@ -12,6 +12,7 @@ let recordsPerPage = 10;
 
 let goBackButton = document.querySelector('.go-back');
 goBackButton.addEventListener('click', function() {
+    localStorage.removeItem("allUsers");
     window.location = "index.html";
 })
 
@@ -25,13 +26,28 @@ let usersContainer = document.querySelector('.users-container');
 let allUsersJsonString = localStorage.getItem("allUsers");
 let allUsers = JSON.parse(allUsersJsonString);
 
-bubbleSort(allUsers);
-changePage(1);
+
+checkIfUsersAvailable();
+
+function checkIfUsersAvailable() {
+    if (!allUsers) {
+        usersContainer.innerHTML =  "<div class='user'><p>No users found</p></div>";
+    } else {
+        bubbleSort(allUsers);
+        changePage(1);
+    }
+}
 
 function bubbleSort(users) {
     for (let i = 0; i < users.length ; i++) {
-        for(let j = 0 ; j < users.length - i - 1; j++){
+        for(let j = 0 ; j < users.length - i - 1; j++) {
             if (users[j].score < users[j + 1].score) {
+                let temp = users[j];
+                users[j] = users[j+1];
+                users[j + 1] = temp;
+            }
+
+            if (users[j].difficulty < users[j + 1].difficulty && users[j].score === users[j + 1].score) {
                 let temp = users[j];
                 users[j] = users[j+1];
                 users[j + 1] = temp;
@@ -51,7 +67,8 @@ function changePage(pageIndex) {
     for (let i = (pageIndex - 1) * recordsPerPage; i < (pageIndex * recordsPerPage); i++) {
         if (!allUsers[i]) break;
         usersContainer.innerHTML += "<div class='user'><p class='username'>" + allUsers[i].username + 
-                                    "</p><p class='score'>" + allUsers[i].score + "</p></div>";
+                                    "</p><div class='difficulty-container'><p class='difficulty'>" + receiveDifficulty(allUsers[i].difficulty) +
+                                    "</p><p class='score'>" + allUsers[i].score + "</p></div></div>";
         setPodiumColors(pageIndex, i);
     }
 
@@ -105,5 +122,16 @@ function setPodiumColors(pageIndex, userIndex) {
                 users[userIndex].style.backgroundColor = "#CD7F32";
                 break;
         }
+    }
+}
+
+function receiveDifficulty(difficulty) {
+    switch (difficulty) {
+        case 0:
+            return "Easy";
+        case 1:
+            return "Medium";
+        case 2:
+            return "Hard";
     }
 }

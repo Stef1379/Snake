@@ -58,6 +58,20 @@ body{
     word-wrap: break-word;
 }
 
+.user .difficulty-container{
+    display: flex;
+    justify-content: space-between;
+    width: 75px;
+}
+
+.user .difficulty-container p{
+    margin-right: 2%;
+}
+
 .user:nth-child(even){
     background: #eee;
+}
+
+.previous-button, .next-button{
+    visibility: hidden;
 }

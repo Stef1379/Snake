@@ -37,8 +37,9 @@ const receiveAllUsers = async () => {
   }
 }
 
-const createUser = async (username, score) => {
+const createUser = async (username, score, difficulty) => {
   if (!score) score = 0;
+  if (!difficulty) difficulty = 0;
   
   await fetch(receiveOrPostUsersURL, {
     method: 'POST',
@@ -51,6 +52,10 @@ const createUser = async (username, score) => {
         {
           "name": "score",
           "value": score
+        },
+        {
+          "name": "difficulty",
+          "value": difficulty
         }
       ]
     }),
