@@ -50,7 +50,7 @@ function game() {
     headXPos += XDirection;
 
     checkBorderCollide();
-    for(let i = 0; i < trail.length; i++){
+    for(let i = 0; i < trail.length; i++) {
         ctx.fillStyle = "lime";
         ctx.fillRect(trail[i].x * gridSize, trail[i].y * gridSize, gridSize - 2, gridSize - 2);
 
@@ -60,13 +60,13 @@ function game() {
     }
 
     trail.push({x:headXPos, y:headYPos});
-    while(trail.length > tail){
+    while(trail.length > tail) {
         ctx.clearRect(trail[0].x * gridSize, trail[0].y * gridSize, gridSize - 2, gridSize - 2);
         trail.shift();
     }
 
-    if(trail.length >= 5){
-        if(trail[4].x === goalXPos && trail[4].y === goalYPos){
+    if(trail.length >= 5) {
+        if(trail[4].x === goalXPos && trail[4].y === goalYPos) {
             trail.push({x:headXPos, y:headYPos});
             tail++;
             score++;
@@ -81,8 +81,8 @@ function createGoal() {
     goalXPos = Math.floor(Math.random() * tileCount);
     goalYPos = Math.floor(Math.random() * tileCount);
 
-    for(let i = 0; i < trail.length; i++){
-        if(trail[i].x === goalXPos && trail[i].y === goalYPos){
+    for(let i = 0; i < trail.length; i++) {
+        if(trail[i].x === goalXPos && trail[i].y === goalYPos) {
             goalXPos = Math.floor(Math.random() * tileCount);
             goalYPos = Math.floor(Math.random() * tileCount);
         }
@@ -109,16 +109,16 @@ function setStep(e) {
 }
 
 function checkBorderCollide() {
-    if(headYPos > 19){
+    if(headYPos > 19) {
         headYPos = 0;
     }
-    if(headXPos > 19){
+    if(headXPos > 19) {
         headXPos = 0;
     }
-    if(headXPos < 0){
+    if(headXPos < 0) {
         headXPos = 19;
     }
-    if(headYPos < 0){
+    if(headYPos < 0) {
         headYPos = 19;
     }
 }
@@ -129,7 +129,7 @@ function setScore() {
 }
 
 function buttonClick(e) {
-    switch (e.target){
+    switch (e.target) {
         case easyButton:
             setInterval(game, 1000/10);
             difficulty = "Easy";
@@ -143,7 +143,7 @@ function buttonClick(e) {
             difficulty = "Hard";
             break;
     }
-    e.target.style.background = "lightgray"
+    e.target.style.background = "lightgray";
 
     let counter = 0;
     while (counter < buttons.length){

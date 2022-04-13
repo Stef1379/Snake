@@ -55,13 +55,14 @@ body{
 }
 
 .user .username{
+    min-width: 10%;
     word-wrap: break-word;
 }
 
 .user .difficulty-container{
     display: flex;
     justify-content: space-between;
-    width: 75px;
+    min-width: 75px;
 }
 
 .user .difficulty-container p{
