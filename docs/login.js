@@ -41,6 +41,6 @@ function setErrorMessage(usernameInputValue) {
     if (usernameInputValue && usernameInputValue.length > MAX_LENGTH) {
         return "Username may contain only 30 characters";
     } else {
-        return "Please enter a valid username";
+        return "Please enter a valid name";
     }
 }

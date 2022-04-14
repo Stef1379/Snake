@@ -8,6 +8,7 @@ canvas{
     justify-content: space-between;
     align-items: center;
     max-width: 404px;
+    margin-bottom: 5px;
 }
 
 #info-container{
@@ -22,6 +23,29 @@ canvas{
     word-wrap: break-word;
 }
 
+#buttons{
+    display: flex;
+    justify-content: center;
+}
+
+#buttons div{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+#buttons div:first-child{
+    margin-right: 5px;
+}
+
+#buttons div button{
+    width: 100px;
+}
+
+#buttons div button:first-child{
+    margin-bottom: 5px;
+}
+
 @media only screen and (max-device-width: 900px){
     html{
         touch-action: manipulation;
@@ -34,7 +58,7 @@ canvas{
     }
 
     #arrow-buttons button{
-        height: 75px;
+        height: 100px;
         width: 50%;
         margin-top: 5px;
         flex-wrap: wrap;
