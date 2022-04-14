@@ -19,7 +19,6 @@ body{
 .go-back{
     border-radius: 10px;
     border: 1px black solid;
-    font-size: medium;
     align-self: flex-start;
 }
 
