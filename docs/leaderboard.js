@@ -23,7 +23,10 @@ receiveAllUsers().then(users => {
 });
 
 function checkIfUsersAvailable(users) {
-    if (!allUsers) return;
+    if (!allUsers) {
+        showErrorMessage("Something went wrong!");
+        return;
+    }
 
     if (users.length <= 0) {
         showErrorMessage("No users found");
