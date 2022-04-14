@@ -1,12 +1,3 @@
-window.onload = function() {
-    if(!window.location.hash) {
-        window.location = window.location + '#leaderboard';
-        window.location.reload();
-    }
-};
-
-receiveAllUsers();
-
 let currentPage = 1;
 let recordsPerPage = 10;
 
@@ -16,22 +7,27 @@ goBackButton.addEventListener('click', function() {
     window.location = "index.html";
 })
 
+let usersContainer = document.querySelector('.users-container');
 let previousButton = document.querySelector(".previous-button");
 let nextButton = document.querySelector(".next-button");
 let page_span = document.querySelector(".page-index");
 previousButton.addEventListener('click', goToPreviousPage);
 nextButton.addEventListener('click', goToNextPage);
 
-let usersContainer = document.querySelector('.users-container');
-let allUsersJsonString = localStorage.getItem("allUsers");
-let allUsers = JSON.parse(allUsersJsonString);
 
+let allUsers = undefined;
+receiveAllUsers().then(users => {
+    allUsers = users;
+    checkIfUsersAvailable(users);
+}).catch(() => {
+    showErrorMessage("Something went wrong!");
+});
 
-checkIfUsersAvailable();
+function checkIfUsersAvailable(users) {
+    if (!allUsers) return;
 
-function checkIfUsersAvailable() {
-    if (!allUsers) {
-        usersContainer.innerHTML =  "<div class='user'><p>Something went wrong</p></div>";
+    if (users.length <= 0) {
+        showErrorMessage("No users found");
     } else {
         bubbleSort(allUsers);
         changePage(1);
@@ -82,7 +78,6 @@ function changePage(pageIndex) {
         previousButton.style.visibility = "visible";
     }
 
-    console.log(allUsers.length)
     if (pageIndex == amountOfPages()) {
         nextButton.style.visibility = "hidden";
     } else {
@@ -135,4 +130,8 @@ function receiveDifficulty(difficulty) {
         case 2:
             return "Hard";
     }
+}
+
+function showErrorMessage(message) {
+    usersContainer.innerHTML =  "<div class='error-message'><p>" + message + "</p></div>";
 }

@@ -187,16 +187,26 @@ function setUsername() {
 }
 
 function gameOver() {
-    switch (difficulty) {
-        case "Easy":
-            createUser(username, score, 0);
-            break;
-        case "Medium":
-            createUser(username, score, 1);
-            break;
-        case "Hard":
-            createUser(username, score, 2);
-            break;
-    }
+    receiveUsername(username).then(user => {
+        if (!user || user[0].score >= score) {
+            showLeaderboard();
+            return;
+        }
+
+        switch (difficulty) {
+            case "Easy":
+                createOrUpdateUser(username, score, 0).then(() => showLeaderboard());
+                break;
+            case "Medium":
+                createOrUpdateUser(username, score, 1).then(() => showLeaderboard());
+                break;
+            case "Hard":
+                createOrUpdateUser(username, score, 2).then(() => showLeaderboard());
+                break;
+        }
+    });
+}
+
+function showLeaderboard() {
     window.location = "leaderboard.html";
 }

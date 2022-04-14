@@ -48,7 +48,7 @@ body{
     }
 }
 
-.user{
+.user, .error-message{
     display: flex;
     justify-content: space-between;
     padding: 1%;

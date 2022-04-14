@@ -12,14 +12,16 @@ let usernameInput = document.querySelector('.username-container input');
 usernameInput.addEventListener('keyup', () => validateUsernameInput());
 
 submitButton.addEventListener('click', function(e) {
-    let username = usernameInput.value;
+    let usernameInputValue = usernameInput.value;
     let isUsernameValid = validateUsernameInput(e);
 
     if (isUsernameValid) {
-        receiveUsername(username);
+        receiveUsername(usernameInputValue).then(user => {
+            if (!user) return;
 
-        localStorage.setItem("username", username);
-        window.location = "snake.html";
+            localStorage.setItem("username", user[0].username);
+            window.location = "snake.html";
+        });
     }
 });
 

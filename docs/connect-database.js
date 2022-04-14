@@ -14,12 +14,13 @@ const receiveUsername = async (username) => {
     }
   });
   const myJson = await response.json();
-  localStorage.setItem("username", username);
 
   //When the username is not in database, create a new username.
   if (myJson.data.length === 0) {
-    createUser(username);
+    createOrUpdateUser(username);
+    return;
   }
+  return myJson.data;
 }
 
 const receiveAllUsers = async () => {
@@ -35,13 +36,14 @@ const receiveAllUsers = async () => {
   if (myJson.data.length > 0) {
     localStorage.setItem("allUsers", JSON.stringify(myJson.data));
   }
+  return myJson.data;
 }
 
-const createUser = async (username, score, difficulty) => {
+const createOrUpdateUser = async (username, score, difficulty) => {
   if (!score) score = 0;
   if (!difficulty) difficulty = 0;
   
-  await fetch(receiveOrPostUsersURL, {
+  const response = await fetch(receiveOrPostUsersURL, {
     method: 'POST',
     body: JSON.stringify({
       "columns": [
@@ -64,4 +66,5 @@ const createUser = async (username, score, difficulty) => {
       'X-Cassandra-Token': apiKey
     }
   });
+  return;
 }
