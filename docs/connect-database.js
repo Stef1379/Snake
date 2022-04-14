@@ -5,7 +5,7 @@ const receiveOrPostUsersURL = baseApiURL + "v1/keyspaces/Leaderboard/tables/scor
 const receiveUserFromUsernameURL = baseApiURL + "v2/keyspaces/Leaderboard/scores/";
 const receiveAllUsersURL = baseApiURL + "v2/keyspaces/Leaderboard/scores/rows";
 
-const receiveUsername = async (username) => {
+const receiveUser = async (username) => {
   const response = await fetch(receiveUserFromUsernameURL + username, {
     method: 'GET',
     headers: {
@@ -32,10 +32,6 @@ const receiveAllUsers = async () => {
     }
   });
   const myJson = await response.json();
-
-  if (myJson.data.length > 0) {
-    localStorage.setItem("allUsers", JSON.stringify(myJson.data));
-  }
   return myJson.data;
 }
 

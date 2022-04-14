@@ -16,7 +16,7 @@ submitButton.addEventListener('click', function(e) {
     let isUsernameValid = validateUsernameInput(e);
 
     if (isUsernameValid) {
-        receiveUsername(usernameInputValue).then(user => {
+        receiveUser(usernameInputValue).then(user => {
             if (!user) return;
 
             localStorage.setItem("username", user[0].username);

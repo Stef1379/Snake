@@ -3,7 +3,6 @@ let recordsPerPage = 10;
 
 let goBackButton = document.querySelector('.go-back');
 goBackButton.addEventListener('click', function() {
-    localStorage.removeItem("allUsers");
     window.location = "index.html";
 })
 

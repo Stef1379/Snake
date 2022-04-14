@@ -187,7 +187,7 @@ function setUsername() {
 }
 
 function gameOver() {
-    receiveUsername(username).then(user => {
+    receiveUser(username).then(user => {
         if (!user || user[0].score >= score) {
             showLeaderboard();
             return;
