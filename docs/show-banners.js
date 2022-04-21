@@ -1,5 +1,5 @@
 window.onload = function() {
-    showBanners()
+    showBanners();
 };
 
 myBanners = [['Stichting \'t Oetske.png', 'https://showploegske.jouwweb.nl/'], ['taxibedrijfvdloo.png', 'https://taxibedrijfvdloo.jouwweb.nl/']];
